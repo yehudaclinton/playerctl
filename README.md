@@ -10,3 +10,11 @@ To run the provided example, you can use `npm start` command.
 ```bash
 npm start
 ```
+
+npx cap run android
+
+
+npm run build
+
+
+npx cap sync
