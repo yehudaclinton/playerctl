@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">playerctl</string>
+    <string name="title_activity_main">playerctl</string>
+    <string name="package_name">com.playerctl.app</string>
+    <string name="custom_url_scheme">com.playerctl.app</string>
+</resources>

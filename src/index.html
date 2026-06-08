@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SSH App</title>
+  <!-- <script type="module" crossorigin src="/assets/index-DEMpgcrc.js"></script> -->
+</head>
+<body>
+  <h1>Player control app</h1>
+  
+  <button id="playPause">⏹ Stop</button>
+  <br><br>
+  <button id="sshBtn">See metadata</button>
+  <br><br>
+  <button id="stopin5">Stop in 5 minutes</button>
+  <br><br>
+  <button id="lock">Lock</button>
+  <br><br>
+  <button id="next">Next song</button>
+  
+  <h3>Output:</h3>
+  <pre id="output" style="background:#f0f0f0; padding:10px; border-radius:5px;">Waiting...</pre>
+  <div>
+    <label>Volume: <span id="vol-display">50</span>%</label>
+    <input type="range" id="volume" min="0" max="100" value="50">
+  </div>
+
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>
