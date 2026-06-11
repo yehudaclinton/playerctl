@@ -7,8 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const stopin5 = document.getElementById('stopin5');
   const lock = document.getElementById('lock');
   const next = document.getElementById('next');
+  const previous = document.getElementById('next');
   const outputBox = document.getElementById('output');
 
+  const screenshot = document.getElementById('see');
   const volSlider = document.getElementById('volume');
   const volDisplay = document.getElementById('vol-display');
 
@@ -69,6 +71,16 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (e) { outputBox.textContent = "Error: " + e.message; }
   });
 
+  previous.addEventListener('click', async () => {
+    outputBox.textContent = "previous...";
+    try {
+      const result = await runSSHCommand('playerctl prev');
+      outputBox.textContent = result;
+      result = await runSSHCommand('playerctl previous');
+      outputBox.textContent = result;
+    } catch (e) { outputBox.textContent = "Error: " + e.message; }
+  });
+
     //////////////////////// volume ////////////////////////
   async function updateVolumeUI() {
     try {
@@ -96,4 +108,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   updateVolumeUI();
 
-});   
+  screenshot.addEventListener('click', async () => {
+    outputBox.textContent = "picture...";
+    try {
+  // const result = await runSSHCommand('scrot /tmp/screen.png && base64 /tmp/screen.png');
+  // img.src = 'data:image/png;base64,' + result.trim();
+    } catch (e) { outputBox.textContent = "Error: " + e.message; }
+  });
+  
+});
+
