@@ -10,7 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const previous = document.getElementById('next');
   const outputBox = document.getElementById('output');
 
-  const screenshot = document.getElementById('see');
+  const ssbtn = document.getElementById('see');
+  const screenshot = document.getElementById('screenshot');
   const volSlider = document.getElementById('volume');
   const volDisplay = document.getElementById('vol-display');
 
@@ -108,11 +109,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   updateVolumeUI();
 
-  screenshot.addEventListener('click', async () => {
+  ssbtn.addEventListener('click', async () => {
     outputBox.textContent = "picture...";
-    try {
-  // const result = await runSSHCommand('scrot /tmp/screen.png && base64 /tmp/screen.png');
-  // img.src = 'data:image/png;base64,' + result.trim();
+    try { // 'grim -g "$(slurp)" - | base64 -w 0'
+      const result = await runSSHCommand('DISPLAY=:0 scrot /tmp/screen.png && base64 /tmp/screen.png');
+      screenshot.src = 'data:image/png;base64,' + result.trim();
     } catch (e) { outputBox.textContent = "Error: " + e.message; }
   });
   
