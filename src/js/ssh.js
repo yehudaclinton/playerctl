@@ -6,8 +6,8 @@ export async function runSSHCommand(command) {
   try {
     const result = await SSH.execute({
       host: '10.0.0.16',
-      user: '*****',
-      password: '****',
+      user: 'yehuda',
+      password: 'javajew798',
       command: command,
       port: 22
     });

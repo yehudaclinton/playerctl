@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const stopin5 = document.getElementById('stopin5');
   const lock = document.getElementById('lock');
   const next = document.getElementById('next');
-  const previous = document.getElementById('next');
+  const previous = document.getElementById('previous');
   const outputBox = document.getElementById('output');
 
   const ssbtn = document.getElementById('see');
@@ -112,7 +112,8 @@ document.addEventListener('DOMContentLoaded', () => {
   ssbtn.addEventListener('click', async () => {
     outputBox.textContent = "picture...";
     try { // 'grim -g "$(slurp)" - | base64 -w 0'
-      const result = await runSSHCommand('DISPLAY=:0 scrot /tmp/screen.png && base64 /tmp/screen.png');
+      const fname = 'screen' + Math.floor(Math.random() * 1000) + '.png';
+      const result = await runSSHCommand('DISPLAY=:0 scrot /tmp/'+fname+' && base64 /tmp/'+fname);
       screenshot.src = 'data:image/png;base64,' + result.trim();
     } catch (e) { outputBox.textContent = "Error: " + e.message; }
   });
